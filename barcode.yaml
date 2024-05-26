@@ -61,6 +61,7 @@ improv_serial:
 captive_portal:
 
 logger:
+  level: DEBUG
   hardware_uart: UART0
 
 # ---------------------------------------------
