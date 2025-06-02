@@ -40,9 +40,9 @@ esphome:
     then:
       - lambda: id(last_ean).publish_state("Scan Barcode");
 
-dashboard_import:
-  package_import_url: github://jneroes/barcode-scanner-for-esphome/barcode.yaml@main
-  import_full_config: false
+#dashboard_import:
+#  package_import_url: github://jneroes/barcode-scanner-for-esphome/barcode.yaml@main
+#  import_full_config: false
 
 ota:
   - platform: esphome
