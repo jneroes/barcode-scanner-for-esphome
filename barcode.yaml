@@ -22,7 +22,10 @@ substitutions:
 
 esp32:
   board: wemos_d1_mini32
-
+  
+external_components:
+  - source: github://esphome/esphome@2024.5.5
+    components: [ http_request, json ]
 # ----------------------------------
 # ----       CONFIG END         ----
 # ----------------------------------
@@ -129,8 +132,8 @@ font:
   - file: "_fonts/arial.ttf"
     id: arial_font
     size: 20
-    glyphs:  |
-      ß!?"%()+*=,-_.:°ø0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZÄÜÖ abcdefghijklmnopqrstuvwxyzäüö€@<>/
+    glyphs: >-
+      !?"%()+*=,-_.:°µ²³0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnÖÄÜöäüopqrstuvwxyz$@<>/
 
 i2c:
   sda: "${display_i2c_sda}"
