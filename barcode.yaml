@@ -23,9 +23,9 @@ substitutions:
 esp32:
   board: wemos_d1_mini32
   
-external_components:
-  - source: github://esphome/esphome@2024.5.5
-    components: [ http_request, json ]
+#external_components:
+#  - source: github://esphome/esphome@2024.5.5
+#    components: [ http_request, json ]
 # ----------------------------------
 # ----       CONFIG END         ----
 # ----------------------------------
@@ -41,7 +41,7 @@ esphome:
       - lambda: id(last_ean).publish_state("Scan Barcode");
 
 dashboard_import:
-  package_import_url: github://SmartHome-yourself/barcode-scanner-for-esphome/barcode.yaml@main
+  package_import_url: github://jneroes/barcode-scanner-for-esphome/barcode.yaml@main
   import_full_config: false
 
 ota:
@@ -187,7 +187,7 @@ http_request:
   useragent: esphome/barcodescanner
   timeout: 10s
   id: http_request_data
-  verify_ssl: false
+  #verify_ssl: false
   
 script:
   - id: request_ean
@@ -269,7 +269,7 @@ script:
       ean: std::string
     then:
       - http_request.get:
-          verify_ssl: false
+          #verify_ssl: false
           url: !lambda |-
                   return (std::string) "https://opengtindb.org/?ean=" + ean + "&cmd=query&queryid=${rest_opentindb_queryid}";
           on_response:
