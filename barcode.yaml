@@ -270,7 +270,6 @@ script:
       - http_request.get:
           url: !lambda |-
                   return (std::string) "https://opengtindb.org/?ean=" + ean + "&cmd=query&queryid=${rest_opentindb_queryid}";
-          verify_ssl: false
           on_response:
             then:
               - lambda: |-
@@ -324,7 +323,6 @@ script:
             std::string url = "https://world.openfoodfacts.org/api/v2/product/" + ean + "?fields=brands,product_name,code";
             ESP_LOGD("openFood", "API: %s\n", url.c_str());
             return url;
-            verify_ssl: false
           on_response:
             then:
               - if:
